@@ -3,7 +3,7 @@
 #' @description UI and server function for an example Shiny module.
 #'
 #' @param id Internal parameter for {shiny}.
-#' @param variable choices are waiting and eruptions.
+#' @param variable choices are waiting and eruptions among the faithful dataset columns
 #'
 #' @name mod_faithful_hist
 #'
