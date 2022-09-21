@@ -3,6 +3,7 @@
 #' @description UI and server function for an example Shiny module.
 #'
 #' @param id Internal parameter for {shiny}.
+#' @param variable choices are waiting and eruptions among the faithful dataset columns
 #'
 #' @name mod_faithful_hist
 #'
@@ -26,11 +27,10 @@ mod_faithful_hist_ui <- function(id) {
   )
 }
 #' @rdname mod_faithful_hist
-mod_faithful_hist_server <- function(id){
+mod_faithful_hist_server <- function(id, variable){
   moduleServer( id, function(input, output, session){
     ns <- session$ns
     # generate bins based on input$bins from ui.R
-    variable <- "waiting"
     x <- datasets::faithful[, variable, drop = FALSE]
     bins <- reactive(seq(min(x), max(x), length.out = input$bins + 1))
     output$distPlot <- renderPlot({
